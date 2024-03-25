@@ -1,4 +1,6 @@
+// Importing the User model
 const User = require('../models/user');
+// Controller object to handle CRUD operations for users
 const UserController = {
   getAllUsers: async (req, res) => {
     try {
@@ -8,6 +10,7 @@ const UserController = {
       res.status(500).json({ error: 'Internal server error' });
     }
   },
+ 
   getUserById: async (req, res) => {
     try {
       const user = await User.findById(req.params.userId);
@@ -19,6 +22,7 @@ const UserController = {
       res.status(500).json({ error: 'Internal server error' });
     }
   },
+  
   createUser: async (req, res) => {
     try {
       const user = await User.create(req.body);
@@ -51,4 +55,5 @@ const UserController = {
   }
 };
 
+// Exporting the ThoughtController object
 module.exports = UserController;

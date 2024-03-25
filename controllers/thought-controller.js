@@ -1,4 +1,6 @@
+// Importing the Thought model
 const Thought = require('../models/thought');
+// Controller object to handle CRUD operations for thoughts
 const ThoughtController = {
   getAllThoughts: async (req, res) => {
     try {
@@ -8,6 +10,7 @@ const ThoughtController = {
       res.status(500).json({ error: 'Internal server error' });
     }
   },
+  
   getThoughtById: async (req, res) => {
     try {
       const thought = await Thought.findById(req.params.thoughtId);
@@ -19,6 +22,7 @@ const ThoughtController = {
       res.status(500).json({ error: 'Internal server error' });
     }
   },
+  
   createThought: async (req, res) => {
     try {
       const thought = await Thought.create(req.body);
@@ -27,6 +31,7 @@ const ThoughtController = {
       res.status(400).json({ error: 'Invalid request' });
     }
   },
+  
   updateThought: async (req, res) => {
     try {
       const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, req.body, { new: true });
@@ -38,6 +43,7 @@ const ThoughtController = {
       res.status(400).json({ error: 'Invalid request' });
     }
   },
+  
   deleteThought: async (req, res) => {
     try {
       const thought = await Thought.findByIdAndDelete(req.params.thoughtId);
@@ -50,3 +56,9 @@ const ThoughtController = {
     }
   }
 };
+
+// Exporting the ThoughtController object
+module.exports = ThoughtController;
+
+
+

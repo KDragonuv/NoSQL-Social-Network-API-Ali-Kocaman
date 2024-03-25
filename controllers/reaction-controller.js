@@ -11,7 +11,7 @@ const ReactionController = {
         return res.status(404).json({ error: 'Thought not found' });
       }
 
-      
+      // reaction creation
       thought.reactions.push({ reactionBody, username });
       await thought.save();
 
@@ -29,13 +29,13 @@ const ReactionController = {
         return res.status(404).json({ error: 'Thought not found' });
       }
 
-      
+       // Finding the index of the reaction
       const reactionIndex = thought.reactions.findIndex(reaction => reaction._id.toString() === reactionId);
       if (reactionIndex === -1) {
         return res.status(404).json({ error: 'Reaction not found' });
       }
 
-      
+      // Removal of reaction from the array
       thought.reactions.splice(reactionIndex, 1);
       await thought.save();
 

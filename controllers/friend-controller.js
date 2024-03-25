@@ -15,12 +15,12 @@ const FriendController = {
         return res.status(404).json({ error: 'Friend not found' });
       }
 
-      
+      // Check if friend is already in the user's friends list
       if (user.friends.includes(friendId)) {
         return res.status(400).json({ error: 'Friend already added' });
       }
 
-      
+       // Add friend to user's friends list
       user.friends.push(friendId);
       await user.save();
 
@@ -38,13 +38,13 @@ const FriendController = {
         return res.status(404).json({ error: 'User not found' });
       }
 
-      
+      // Find index of friend in user's friends list
       const friendIndex = user.friends.indexOf(friendId);
       if (friendIndex === -1) {
         return res.status(404).json({ error: 'Friend not found in user\'s list' });
       }
 
-      
+      // Remove friend from user's friends list
       user.friends.splice(friendIndex, 1);
       await user.save();
 

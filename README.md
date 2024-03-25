@@ -28,3 +28,4 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Example Of The Showcased Work 
 
+![](https://github.com/KDragonuv/NoSQL-Social-Network-API-Ali-Kocaman/blob/main/assets/insomnia%20controllers.gif) 
